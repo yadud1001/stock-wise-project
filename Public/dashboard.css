@@ -109,12 +109,12 @@ main.main-container > section.active {
 
 .inventory-table th, .inventory-table td {
     padding: 10px;
-    border: 1px solid #4b515e; /* Darker border color */
-    text-align: left; /* Align text to the left */
+    border: 1px solid #4b515e;
+    text-align: left;
 }
 
 .inventory-table th {
-    background-color: #282c34; /* Darker header background */
+    background-color: #282c34;
     color: #eee;
 }
 
