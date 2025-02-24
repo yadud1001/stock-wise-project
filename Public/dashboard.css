@@ -101,19 +101,19 @@ main.main-container > section.active {
     display: block;
 }
 
-.inventory-table {
+.data-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
-.inventory-table th, .inventory-table td {
+.data-table th, .data-table td {
     padding: 10px;
     border: 1px solid #4b515e;
     text-align: left;
 }
 
-.inventory-table th {
+.data-table th {
     background-color: #282c34;
     color: #eee;
 }
