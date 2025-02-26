@@ -100,3 +100,48 @@ main.main-container > section {
 main.main-container > section.active {
     display: block;
 }
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.data-table th, .data-table td {
+    padding: 10px;
+    border: 1px solid #4b515e;
+    text-align: left;
+}
+
+.data-table th {
+    background-color: #282c34;
+    color: #eee;
+}
+
+.update-button {
+    background-color: #61dafb;
+    color: #282c34;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.update-button:hover {
+    background-color: #52b7cd;
+}
+
+.settings-button {
+    background-color: #61dafb;
+    color: #282c34;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+.settings-button:hover {
+    background-color: #52b7cd;
+}

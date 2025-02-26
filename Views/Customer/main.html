@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/Public/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="top-nav">
+        <div class="logo">StockWise (Customer)</div>
+    </div>
+
+    <aside class="sidebar">
+        <ul class="nav-links">
+            <li><a href="#" data-target="dashboard" class="active">Dashboard</a></li>
+            <li><a href="#" data-target="products">Products</a></li>
+            <li><a href="#" data-target="history">History</a></li>
+            <li><a href="#" data-target="settings">Settings</a></li>
+        </ul>
+
+        <div class="logout-container">
+            <a href="#" data-target="log-out" class="logout-link">Log Out</a>
+        </div>
+    </aside>
+
+    <main class="main-container">
+        <section id="dashboard" class="active">
+            <div class="main-content">
+                <h1>Welcome Customer!</h1>
+                <p>Click on side tabs to get started.</p>
+            </div>
+        </section>
+
+        <section id="products">
+            <div class="main-content">
+                <h1>Products Purchased</h1>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name of Product</th>
+                            <th>Price</th>
+                            <th>Qnty</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>T-Shirt</td>
+                            <td>$20</td>
+                            <td>3</td>
+                            <td>
+                                <button class="update-button">Update</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Jeans</td>
+                            <td>$50</td>
+                            <td>2</td>
+                            <td>
+                                <button class="update-button">Update</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="history">
+            <div class="main-content">
+                <h1>Order History</h1> 
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Date</th>
+                            <th>Order History</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>June 2025</td>
+                            <td>Purchased 3 T-Shirts</td>
+                            <td>
+                                <button class="update-button">Update</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>July 2025</td>
+                            <td>Purchased 2 Jeans</td>
+                            <td>
+                                <button class="update-button">Update</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="settings">
+            <div class="main-content">
+                <h1>Settings</h1> 
+                
+                <button class="settings-button">Manage Lists</button>
+                <button class="settings-button">Change Username/Password</button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-links a, .logout-link');
+            const sections = document.querySelectorAll('main.main-container > section');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    const targetId = this.dataset.target;
+                    const targetSection = document.getElementById(targetId);
+
+                    if (targetSection) {
+                        sections.forEach(section => section.classList.remove('active'));
+                        targetSection.classList.add('active');
+
+                        navLinks.forEach(otherLink => otherLink.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
