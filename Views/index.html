@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StockWise</title>
-    <link rel="stylesheet" href="/Public/index.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <nav>
-        <div class="logo">StockWise</div>
-        <div class="login-dropdown">
-            <button class="dropdown-btn">Login</button>
-            <div class="dropdown-content">
-                <a href="#">Admin</a>
-                <a href="#">Customer</a>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>StockWise</title>
+        <link rel="stylesheet" href="/Public/index.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <nav>
+            <div class="logo">StockWise</div>
+            <div class="login-dropdown">
+                <button class="dropdown-btn">Login</button>
+                <div class="dropdown-content">
+                    <a href="/Views/Admin/adminLogin.html">Admin</a>
+                    <a href="/Views/Customer/customerLogin.html">Customer</a>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Welcome to StockWise Inventory</h1>
-            <p>Manage your products efficiently.</p>
-            <button class="cta-button">View Inventory</button>
-        </div>
-    </section>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome to StockWise Inventory</h1>
+                <p>Manage your products efficiently.</p>
+                <div class="login-dropdown">
+                    <button class="cta-button dropdown-btn" id="view-inventory">View Inventory</button>
+                    <div class="dropdown-content">
+                        <a href="/Views/Admin/adminLogin.html">as Admin</a>
+                        <a href="/Views/Customer/customerLogin.html">as Customer</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <footer>
-        <p>&copy; 2025 StockWise</p>
-    </footer>
-</body>
+        <footer>
+            <p>&copy; 2025 StockWise</p>
+        </footer>
+    </body>
+
+    <script>
+        
+    </script>
 </html>

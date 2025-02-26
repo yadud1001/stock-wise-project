@@ -53,6 +53,7 @@ body {
     cursor: pointer;
     width: 100%;
     font-weight: bold;
+    margin-top: 10px;
 }
 
 .login-button:hover {
