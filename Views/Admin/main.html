@@ -55,7 +55,7 @@
                             <td>$20</td>
                             <td>100</td>
                             <td>
-                                <button class="update-button">Update</button>
+                                <button class="update-button" data-product-id="1">Update</button>
                             </td>
                         </tr>
                         <tr>
@@ -64,7 +64,7 @@
                             <td>$50</td>
                             <td>50</td>
                             <td>
-                                <button class="update-button">Update</button>
+                                <button class="update-button" data-product-id="2">Update</button>
                             </td>
                         </tr>
                         </tbody>
@@ -89,14 +89,14 @@
                             <td>1</td>
                             <td>Saroise Regidolgh</td>
                             <td>
-                                <button class="update-button">Update</button>
+                                <button class="update-button" data-customer-id="1">Update</button>
                             </td>
                         </tr>
                         <tr>
                             <td>2</td>
                             <td>Islette Ludrick</td>
                             <td>
-                                <button class="update-button">Update</button>
+                                <button class="update-button" data-customer-id="2">Update</button>
                             </td>
                         </tr>
                     </tbody>
@@ -122,7 +122,7 @@
                                 <td>January 2025</td>
                                 <td>Total Sales: Php120,000.00</td>
                                 <td>
-                                    <button class="update-button">Update</button>
+                                    <button class="update-button" data-report-id="1">Update</button>
                                 </td>
                             </tr>
                             <tr>
@@ -130,7 +130,7 @@
                                 <td>February 2025</td>
                                 <td>Total Sales: Php545,000.00</td>
                                 <td>
-                                     <button class="update-button">Update</button>
+                                     <button class="update-button" data-report-id="2">Update</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -148,6 +148,14 @@
             </div>
         </section>
     </main>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalContent">
+                </div>
+    </div>
+</body>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -170,7 +178,60 @@
                     }
                 });
             });
+
+            const updateButtons = document.querySelectorAll('.update-button');
+            const modal = document.getElementById('editModal');
+            const modalContent = document.getElementById('modalContent');
+            const closeButton = modal.querySelector('.close');
+
+            updateButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const itemId = this.dataset.productId || this.dataset.customerId || this.dataset.reportId;
+                    const section = this.closest('section');
+
+                    let editContent = `<h2 style="color: #4b515e">Edit `
+                                            if (section.id === 'inventory') {
+                                                editContent += `Product ${itemId}`;
+                                            } else if (section.id === 'customers') {
+                                                editContent += `Customer ${itemId}`;
+                                            } else {
+                                                editContent += `Report ${itemId}`;
+                                            }
+                                        editContent += `</h2>`;
+                    if(section.id === 'inventory'){
+                        editContent += `<form>
+                                            <input type="text" placeholder="Name of Product" style="padding: 5px 10px; margin-right: 5px">
+                                            <input type="number" placeholder="Price" style="padding: 5px 10px; margin-right: 5px">
+                                            <input type="number" placeholder="Quantity" style="padding: 5px 10px">
+                                            <button type="submit" style="margin-top: 20px; padding: 8px 10px; background-color: #4b515e; color: white; border: none">Save Changes</button>
+                                        </form>`;
+                    }else if (section.id === 'customers') {
+                        editContent += `<form>
+                                            <input type="text" placeholder="Name of Customer" style="padding: 5px 10px">
+                                            <button type="submit" style="display: block; margin-top: 20px; padding: 8px 10px; background-color: #4b515e; color: white; border: none">Save Changes</button>
+                                        </form>`;
+                    } else {
+                        editContent += `<form>
+                                            <input type="text" placeholder="Date" style="padding: 5px 10px; margin-right: 5px">
+                                            <input type="text" placeholder="Sales Report" style="padding: 5px 10px;">
+                                            <button type="submit" style="display: block; margin-top: 20px; padding: 8px 10px; background-color: #4b515e; color: white; border: none">Save Changes</button>
+                                        </form>`;
+                    }
+
+                    modalContent.innerHTML = editContent; 
+                    modal.style.display = "block"; 
+                });
+            });
+
+            closeButton.addEventListener('click', () => {
+                modal.style.display = "none";
+            });
+
+            window.addEventListener('click', (event) => {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            });
         });
     </script>
-</body>
 </html>
