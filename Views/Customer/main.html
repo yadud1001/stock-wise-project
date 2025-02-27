@@ -157,19 +157,19 @@
                 const itemId = this.dataset.productId || this.dataset.orderId;
                 const section = this.closest('section');
 
-                let editContent = `<h2>Edit ${section.id === 'products' ? 'Product' : 'Order'} ${itemId}</h2>`;
+                let editContent = `<h2 style="color: #4b515e">Edit ${section.id === 'products' ? 'Product' : 'Order'} ${itemId}</h2>`;
                 if(section.id === 'products'){
                     editContent += `<form>
-                                        <input type="text" placeholder="Name of Product">
-                                        <input type="number" placeholder="Price">
-                                        <input type="number" placeholder="Quantity">
-                                        <button type="submit">Save</button>
+                                        <input type="text" placeholder="Name of Product" style="padding: 5px 10px; margin-right: 5px">
+                                        <input type="number" placeholder="Price" style="padding: 5px 10px; margin-right: 5px">
+                                        <input type="number" placeholder="Quantity" style="padding: 5px 10px">
+                                        <button type="submit" style="margin-top: 20px; padding: 8px 10px; background-color: #4b515e; color: white; border: none">Save Changes</button>
                                     </form>`;
                 }else{
                     editContent += `<form>
-                                        <input type="text" placeholder="Date">
-                                        <input type="text" placeholder="Order History">
-                                        <button type="submit">Save</button>
+                                        <input type="text" placeholder="Date" style="padding: 5px 10px; margin-right: 5px">
+                                        <input type="text" placeholder="Order History" style="padding: 5px 10px;">
+                                        <button type="submit" style="display: block; margin-top: 20px; padding: 8px 10px; background-color: #4b515e; color: white; border: none">Save Changes</button>
                                     </form>`;
                 }
 
