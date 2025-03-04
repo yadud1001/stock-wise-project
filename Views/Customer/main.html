@@ -128,6 +128,10 @@
             renderTable('history', orders, 'history-tbody');
         }
 
+        const modal = document.getElementById('editModal');
+        const modalContent = document.getElementById('modalContent');
+        const closeButton = modal.querySelector('.close');
+
         function renderTable(sectionId, data, tableBodyId) {
             const tableBody = document.getElementById(tableBodyId);
             tableBody.innerHTML = '';
@@ -154,9 +158,6 @@
 
             // for the update button and edit modal
             const updateButtons = document.querySelectorAll('.update-button');
-            const modal = document.getElementById('editModal');
-            const modalContent = document.getElementById('modalContent');
-            const closeButton = modal.querySelector('.close');
 
             updateButtons.forEach(button => {
                 button.addEventListener('click', function () {
@@ -222,6 +223,13 @@
             if (event.target == modal) {
                 modal.style.display = "none";
             }
+        });
+
+        // for logout functionality
+        const logoutLink = document.querySelector('.logout-link');
+
+        logoutLink.addEventListener('click', function() {
+            window.location.href = "customerLogin.html";
         });
     });
 </script>
